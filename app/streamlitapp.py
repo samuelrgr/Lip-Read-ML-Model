@@ -30,20 +30,7 @@ if options:
         st.info(
             "The video display's the speech which is ready to be converted to text.")
         file_path = os.path.join('..', 'data', 's1', selected_video)
-        ffmpeg = (
-            FFmpeg()
-            .option("y")
-            .input(file_path)
-            .output(
-                "test_video.mp4",
-                {"codec:v": "libx264"},
-                vf="scale=1280:-1",
-                preset="veryslow",
-                crf=24,
-            )
-        )
-
-        ffmpeg.execute()
+        os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
 
         # display the video
         video = open('test_video.mp4', 'rb')
