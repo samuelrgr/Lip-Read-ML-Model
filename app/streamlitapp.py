@@ -5,12 +5,13 @@ import tensorflow as tf
 from utils import load_data, num_to_char
 from modelutil import load_model
 from ffmpeg import FFmpeg, Progress
+from moviepy.editor import *
 
 st.set_page_config(layout='wide')
 
 st.title('LipNet')
 col11, col22 = st.columns(2)
-options = os.listdir(os.path.join('..', 'data', 's1'))
+options = os.listdir(os.path.join('data', 's1'))
 selected_video = st.selectbox("Chose Video", options)
 col1, col2 = st.columns(2)
 
@@ -29,8 +30,10 @@ if options:
     with col1:
         st.info(
             "The video display's the speech which is ready to be converted to text.")
-        file_path = os.path.join('..', 'data', 's1', selected_video)
-        os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+        file_path = os.path.join('data', 's1', selected_video)
+        # os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
+        video_convert = VideoFileClip(file_path)
+        video_convert.write_videofile('test_video.mp4', codec='libx264')
 
         # display the video
         video = open('test_video.mp4', 'rb')
