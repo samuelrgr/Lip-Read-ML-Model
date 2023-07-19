@@ -2,5 +2,4 @@ streamlit
 imageio
 tensorflow
 ffmpeg-python
-cv2
-numpy
+opencv-python
