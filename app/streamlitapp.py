@@ -10,7 +10,9 @@ st.set_page_config(layout='wide')
 
 st.title('LipNet')
 col11, col22 = st.columns(2)
-options = os.listdir(os.path.join('data', 's1'))
+base_dir = os.path.dirname(__file__)
+data_dir = os.path.join(base_dir, 'data', 's1')
+options = os.listdir(data_dir)
 selected_video = st.selectbox("Chose Video", options)
 col1, col2 = st.columns(2)
 
