@@ -2,6 +2,8 @@ import os
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv3D, LSTM, Dense, Dropout, Bidirectional, MaxPool3D, Activation, Reshape, SpatialDropout3D, BatchNormalization, TimeDistributed, Flatten
 
+base_dir = os.path.dirname(__file__)
+
 
 def load_model() -> Sequential:
     model = Sequential()
@@ -30,6 +32,6 @@ def load_model() -> Sequential:
 
     model.add(Dense(41, kernel_initializer='he_normal', activation='softmax'))
 
-    model.load_weights(os.path.join('models', 'checkpoint'))
+    model.load_weights(os.path.join(base_dir, 'models', 'checkpoint'))
 
     return model

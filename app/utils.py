@@ -10,6 +10,8 @@ num_to_char = tf.keras.layers.StringLookup(
     vocabulary=char_to_num.get_vocabulary(), oov_token="", invert=True
 )
 
+base_dir = os.path.dirname(__file__)
+
 
 def load_video(path: str) -> List[float]:
     # print(path)
@@ -43,9 +45,9 @@ def load_data(path: str):
     file_name = path.split('/')[-1].split('.')[0]
     # File name splitting for windows
     file_name = path.split('\\')[-1].split('.')[0]
-    video_path = os.path.join('data', 's1', f'{file_name}.mpg')
+    video_path = os.path.join(base_dir, 'data', 's1', f'{file_name}.mpg')
     alignment_path = os.path.join(
-        'data', 'alignments', 's1', f'{file_name}.align')
+        base_dir, 'data', 'alignments', 's1', f'{file_name}.align')
     frames = load_video(video_path)
     alignments = load_alignments(alignment_path)
 

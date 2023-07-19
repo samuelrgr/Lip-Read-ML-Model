@@ -31,13 +31,14 @@ if options:
     with col1:
         st.info(
             "The video display's the speech which is ready to be converted to text.")
-        file_path = os.path.join('data', 's1', selected_video)
+        file_path = os.path.join(base_dir, 'data', 's1', selected_video)
+        output_path = os.path.join(base_dir, 'test_video.mp4')
         # os.system(f'ffmpeg -i {file_path} -vcodec libx264 test_video.mp4 -y')
         video_convert = VideoFileClip(file_path)
-        video_convert.write_videofile('test_video.mp4', codec='libx264')
+        video_convert.write_videofile(output_path, codec='libx264')
 
         # display the video
-        video = open('test_video.mp4', 'rb')
+        video = open(output_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
 
@@ -54,6 +55,7 @@ if options:
         image_data = tf.image.adjust_contrast(image_data, 1.5)
         # Convert the tensor data to a list of NumPy arrays for each frame
         frames = [frame.numpy()[:, :, 0] for frame in tf.unstack(image_data)]
+        animation_file = os.path.join(base_dir, 'animation.gif')
         imageio.mimsave('animation.gif', frames)
         # imageio.mimsave('animation.gif', video, duration=20)
         st.image('animation.gif', width=400)
