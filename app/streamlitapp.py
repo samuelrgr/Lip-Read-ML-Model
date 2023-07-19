@@ -6,7 +6,8 @@ from utils import load_data, num_to_char
 from modelutil import load_model
 from moviepy.editor import *
 
-st.set_page_config(layout='wide')
+st.set_page_config(layout='wide', page_title='LipNet',
+                   page_icon='🎤', initial_sidebar_state='collapsed')
 
 st.title('LipNet')
 col11, col22 = st.columns(2)
@@ -25,6 +26,7 @@ with col22:
     st.info(
         "I have used TensorFlow,numPy,OpenCV, keras and Streamlit to build this app.")
     st.info("It can be used to convert speech to text in real time.")
+    st.info("This model crops the image to mouth of the user and changes it to gray scale as shown below for faster processing.")
 
 
 if options:
