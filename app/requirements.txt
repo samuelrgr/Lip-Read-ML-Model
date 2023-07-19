@@ -2,4 +2,4 @@ streamlit
 imageio
 tensorflow
 ffmpeg-python
-opencv-python
+opencv-python-headless
