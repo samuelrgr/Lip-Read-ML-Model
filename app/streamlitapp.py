@@ -4,7 +4,7 @@ import imageio
 import tensorflow as tf
 from utils import load_data, num_to_char
 from modelutil import load_model
-from ffmpeg import FFmpeg, Progress
+from ffmpeg import FFmpeg
 
 st.set_page_config(layout='wide')
 

@@ -1,0 +1,7 @@
+streamlit
+os
+imageio
+tensor
+ffmpeg-python
+cv2
+numpy
