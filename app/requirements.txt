@@ -1,7 +1,6 @@
 streamlit
-os
 imageio
-tensor
+tensorflow
 ffmpeg-python
 cv2
 numpy
