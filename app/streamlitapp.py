@@ -6,7 +6,7 @@ from utils import load_data, num_to_char
 from modelutil import load_model
 from moviepy.editor import *
 # from streamlit_webrtc import webrtc_streamer, RTCConfiguration
-import av
+# import av
 import cv2
 
 st.set_page_config(layout='wide', page_title='LipNet',
